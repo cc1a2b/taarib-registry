@@ -1,7 +1,7 @@
 {
   "isdar": 1,
-  "tasalsul": 1,
-  "waqt": "2026-09-04T21:24:15Z",
+  "tasalsul": 2,
+  "waqt": "2026-09-04T22:27:58Z",
   "sharaih": {
     "0": "3068f818a51959bec4eebc6cc081d94963bbb7ed0461074f787dac1d4f43acc6",
     "1": "3068f818a51959bec4eebc6cc081d94963bbb7ed0461074f787dac1d4f43acc6",
@@ -106,7 +106,7 @@
     "100": "3068f818a51959bec4eebc6cc081d94963bbb7ed0461074f787dac1d4f43acc6",
     "101": "3068f818a51959bec4eebc6cc081d94963bbb7ed0461074f787dac1d4f43acc6",
     "102": "3068f818a51959bec4eebc6cc081d94963bbb7ed0461074f787dac1d4f43acc6",
-    "103": "a862207ec7dd67b75b885e8f848b97a5e9aeba5c1647e66e533500e26d356f86",
+    "103": "f45467410fd6781d6d3dc9f0cd20e9fd9c2ff9fd8b683d5fdf4e199c46e4d5a6",
     "104": "3068f818a51959bec4eebc6cc081d94963bbb7ed0461074f787dac1d4f43acc6",
     "105": "3068f818a51959bec4eebc6cc081d94963bbb7ed0461074f787dac1d4f43acc6",
     "106": "3068f818a51959bec4eebc6cc081d94963bbb7ed0461074f787dac1d4f43acc6",
@@ -260,5 +260,15 @@
     "254": "3068f818a51959bec4eebc6cc081d94963bbb7ed0461074f787dac1d4f43acc6",
     "255": "3068f818a51959bec4eebc6cc081d94963bbb7ed0461074f787dac1d4f43acc6"
   },
-  "rabt_qaimat_sahb": "sahb/qaima.json"
+  "rabt_qaimat_sahb": "sahb/qaima.json",
+  "tajawuzat": [
+    {
+      "ruqaa": "01a06d42-dc5d-74b2-b27d-5c4441a03a3f",
+      "murajaa": 2,
+      "asbab": [
+        "No capture session recorded the opening of the game, so first-hour coverage was never measured at all."
+      ],
+      "sabab": "Published for the client end-to-end verification described in docs/mustawda.md, not for players: no capture session has recorded this game opening, so first-hour coverage was never measured. Every one of the 90 strings is a draft no reviewer has approved, which is why the listing declares aaliya_faqat."
+    }
+  ]
 }
