@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/cc1a2b/taarib-registry/main/fahras/mukhattat.json",
+  "title": "فهرس التعريبات — index of community Arabic translations of PC games",
+  "description": "Shape of fahras/tarjamat.json. Every entry records what the translation's own page states, the URL that page lives at, and how that URL was read. The registry links; it hosts nothing listed here.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["isdar", "waqt", "nashir", "muallif", "wasf", "firaq", "tarjamat"],
+  "properties": {
+    "isdar": { "const": 1, "description": "Index schema version." },
+    "waqt": { "type": "string", "format": "date-time", "description": "When this revision of the index was cast." },
+    "nashir": { "const": "CC1A2B, Inc.", "description": "Publisher of the index." },
+    "muallif": { "const": "cc1a2b", "description": "Author and maintainer." },
+    "wasf": { "type": "string" },
+    "firaq": { "type": "array", "items": { "$ref": "#/$defs/fariq" } },
+    "tarjamat": { "type": "array", "items": { "$ref": "#/$defs/tarjama" } }
+  },
+  "$defs": {
+    "muarrif": { "type": "string", "pattern": "^[a-z0-9][a-z0-9-]*$" },
+    "rabt": { "type": "string", "pattern": "^https://[^\\s]+$", "maxLength": 2048 },
+    "tareekh": { "type": ["string", "null"], "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+    "tahaqquq": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["waqt", "tareeqa", "rabt", "mulahaza"],
+      "description": "How the entry's facts were read. `rabt` is the URL that was actually fetched; for the api_* kinds it is the API endpoint and `mulahaza` names the page it answered for.",
+      "properties": {
+        "waqt": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        "tareeqa": { "enum": ["safha", "api_nexus", "api_github", "api_gamebanana", "api_thunderstore"] },
+        "rabt": { "$ref": "#/$defs/rabt" },
+        "mulahaza": { "type": ["string", "null"] }
+      }
+    },
+    "fariq": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["muarrif", "ism", "ism_arabi", "rabt", "discord", "x", "wasf", "tawzee", "tahaqquq"],
+      "properties": {
+        "muarrif": { "$ref": "#/$defs/muarrif" },
+        "ism": { "type": "string" },
+        "ism_arabi": { "type": ["string", "null"] },
+        "rabt": { "$ref": "#/$defs/rabt" },
+        "discord": { "anyOf": [ { "$ref": "#/$defs/rabt" }, { "type": "null" } ] },
+        "x": { "anyOf": [ { "$ref": "#/$defs/rabt" }, { "type": "null" } ] },
+        "wasf": { "type": "string" },
+        "tawzee": { "enum": ["majjani", "madfua", "vip", "mukhtalit"], "description": "free / paid / subscription-only / mixed" },
+        "tahaqquq": { "$ref": "#/$defs/tahaqquq" }
+      }
+    },
+    "tarjama": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["muarrif", "luba", "steam_appid", "manassa", "arabiya_rasmiya", "fariq", "muallif", "mudif", "rabt", "taghtiya", "taghtiya_nass", "nisba", "shakl_tiqani", "tareeqa", "rukhsa", "tawzee", "hala", "isdar", "waqt_alnashr", "akhir_tahdith", "tanzeelat", "tanzeelat_naw", "muharrik", "mulahazat", "rawabit_ukhra", "tahaqquq"],
+      "properties": {
+        "muarrif": { "$ref": "#/$defs/muarrif" },
+        "luba": {
+          "type": "object", "additionalProperties": false, "required": ["ism", "ism_arabi"],
+          "properties": { "ism": { "type": "string", "minLength": 1 }, "ism_arabi": { "type": ["string", "null"] } }
+        },
+        "steam_appid": { "type": ["integer", "null"], "minimum": 1, "description": "Steam application id when the game is on Steam; the same number Taarib keys a game on (MasdarLuba::Steam)." },
+        "manassa": { "type": "array", "minItems": 1, "items": { "type": "string" }, "description": "Platforms as the source states them; the index only lists translations that run on PC." },
+        "arabiya_rasmiya": {
+          "description": "Whether the game itself ships Arabic, per Steam's appdetails at the time checked. Taarib hides its own arabization surface for such games (istibdal_lugha_rasmiya), so a client can filter on this.",
+          "anyOf": [ { "type": "null" }, {
+            "type": "object", "additionalProperties": false, "required": ["hala", "masdar", "waqt", "ism_steam"],
+            "properties": {
+              "hala": { "enum": ["naam", "la", "ghayr_maruf"] },
+              "masdar": { "enum": ["steam_appdetails", null] },
+              "waqt": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+              "ism_steam": { "type": ["string", "null"] }
+            }
+          } ]
+        },
+        "fariq": { "anyOf": [ { "$ref": "#/$defs/muarrif" }, { "type": "null" } ], "description": "Reference into firaq[].muarrif." },
+        "muallif": { "type": "string", "minLength": 1, "description": "Author or team as the page names them." },
+        "mudif": { "enum": ["steam_workshop", "nexusmods", "thunderstore", "gamebanana", "github", "itch", "outerwildsmods", "mawqi_alfariq", "mudawwana"], "description": "Where the home page lives (mawqi_alfariq = the team's own site, mudawwana = a blog)." },
+        "rabt": { "$ref": "#/$defs/rabt", "description": "The translation's home page. Fetched." },
+        "taghtiya": { "enum": ["kamila", "wajiha", "hiwar", "juziya", "ghayr_musarraha"], "description": "full / interface only / dialogue-subtitles only / partial / not stated" },
+        "taghtiya_nass": { "type": ["string", "null"], "description": "The page's own words about coverage." },
+        "nisba": { "type": ["number", "null"], "minimum": 0, "maximum": 100, "description": "Completion percentage when the page states one." },
+        "shakl_tiqani": {
+          "type": "array", "minItems": 1, "uniqueItems": true,
+          "items": { "enum": ["istibdal_malafat", "pak", "bepinex", "xunity_autotranslator", "modengine2", "owml", "jotunn", "munassib", "khatt", "tashkil", "istibdal_lugha", "workshop", "dublaja", "tatbeeq_khass", "ghayr_musarrah"] },
+          "description": "file replacement / Unreal pak / BepInEx plugin / XUnity AutoTranslator / ModEngine2 / OWML / Jötunn / installer / font / shaping-RTL work / occupies another language's slot / Steam Workshop item / dubbing / proprietary app / not stated"
+        },
+        "tareeqa": { "enum": ["bashariya_kamila", "aaliya_thum_bashariya", "aaliya_faqat", "ghayr_musarraha"], "description": "The same three values Taarib's own listings use (TareeqaTarjama), plus not-stated. Recorded only when the page says so or credits named translators." },
+        "rukhsa": {
+          "type": "object", "additionalProperties": false, "required": ["naw", "muarrif", "nass"],
+          "properties": {
+            "naw": { "enum": ["ghayr_musarraha", "musarraha", "spdx"], "description": "not stated / stated in the page's own words / a recognised licence" },
+            "muarrif": { "type": ["string", "null"], "description": "SPDX identifier when naw is spdx." },
+            "nass": { "type": ["string", "null"], "description": "The statement as written." }
+          }
+        },
+        "tawzee": { "enum": ["majjani", "madfua", "vip"], "description": "free / sold through a checkout / subscription-only" },
+        "hala": { "enum": ["nashita", "awwaliya", "qayd_altatwir", "mahjura"], "description": "released / initial or beta / work in progress with no release / discontinued by its author" },
+        "isdar": { "type": ["string", "null"] },
+        "waqt_alnashr": { "$ref": "#/$defs/tareekh" },
+        "akhir_tahdith": { "$ref": "#/$defs/tareekh" },
+        "tanzeelat": { "type": ["integer", "null"], "minimum": 0 },
+        "tanzeelat_naw": { "enum": ["tanzeelat", "mushtarikun", null], "description": "downloads / Workshop subscribers" },
+        "muharrik": { "type": ["string", "null"], "description": "Engine when the page names it or it is evident from the mod's mechanism." },
+        "mulahazat": { "type": ["string", "null"] },
+        "rawabit_ukhra": { "type": "array", "items": { "$ref": "#/$defs/rabt" }, "description": "Other pages for the same translation that were also read (mirrors, guides, repositories)." },
+        "tahaqquq": { "$ref": "#/$defs/tahaqquq" }
+      }
+    }
+  }
+}

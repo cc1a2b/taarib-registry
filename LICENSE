@@ -1,3 +1,10 @@
+taarib-registry: catalogue metadata, the community translation index under
+fahras/, and the documentation in this repository are dedicated to the public
+domain under CC0 1.0 Universal by the publisher, CC1A2B, Inc.
+Author and maintainer: cc1a2b <cc1a2b@users.noreply.github.com>.
+Each .ruqaa package under isdar/ carries its own licence in its metadata, and
+every translation the index points at remains under its authors' own terms.
+
 Creative Commons Legal Code
 
 CC0 1.0 Universal
