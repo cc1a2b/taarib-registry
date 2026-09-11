@@ -33,8 +33,7 @@ and individuals outside Taarib, with a link to where each one lives and the
 facts its own page states. The registry hosts none of them. It is a map, not a
 mirror.
 
-Published by CC1A2B, Inc. Written and maintained by
-[cc1a2b](https://github.com/cc1a2b).
+Written and maintained by [cc1a2b](https://github.com/cc1a2b).
 
 ---
 
@@ -993,12 +992,12 @@ indexed translation are taken as-is.
 ## License
 
 Catalogue metadata, the index, and this documentation are released under
-**CC0 1.0 Universal**; the full text with the publisher notice is in
+**CC0 1.0 Universal**; the full text with the dedication notice is in
 [LICENSE](LICENSE).
 
 ```
 taarib-registry — public domain under CC0 1.0 Universal
-Publisher: CC1A2B, Inc.  Author and maintainer: cc1a2b
+Author and maintainer: cc1a2b
 ```
 
 Each `.ruqaa` package declares its own licence in its metadata (the one served
@@ -1020,6 +1019,6 @@ lists so they can correct their own entries.
 
 **taarib-registry — the catalogue Taarib reads, and the map of what exists beside it.**
 
-Built by [cc1a2b](https://github.com/cc1a2b) for CC1A2B, Inc.
+Built by [cc1a2b](https://github.com/cc1a2b).
 
 </div>

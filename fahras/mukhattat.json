@@ -5,11 +5,10 @@
   "description": "Shape of fahras/tarjamat.json. Every entry records what the translation's own page states, the URL that page lives at, and how that URL was read. The registry links; it hosts nothing listed here.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["isdar", "waqt", "nashir", "muallif", "wasf", "firaq", "tarjamat"],
+  "required": ["isdar", "waqt", "muallif", "wasf", "firaq", "tarjamat"],
   "properties": {
     "isdar": { "const": 1, "description": "Index schema version." },
     "waqt": { "type": "string", "format": "date-time", "description": "When this revision of the index was cast." },
-    "nashir": { "const": "CC1A2B, Inc.", "description": "Publisher of the index." },
     "muallif": { "const": "cc1a2b", "description": "Author and maintainer." },
     "wasf": { "type": "string" },
     "firaq": { "type": "array", "items": { "$ref": "#/$defs/fariq" } },

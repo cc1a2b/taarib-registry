@@ -34,8 +34,7 @@
 تعريب والحقائق التي تصرّح بها صفحته. لا يستضيف السجلّ شيئًا منها. هو خريطة، لا
 مرآة.
 
-الناشر CC1A2B, Inc. الكاتب والقائم على الصيانة
-[cc1a2b](https://github.com/cc1a2b).
+الكاتب والقائم على الصيانة [cc1a2b](https://github.com/cc1a2b).
 
 ---
 
@@ -953,11 +952,11 @@ GitHub وهو تسليمٌ محلي حتى يوفّر المشغّل معرّف�
 ## الرخصة
 
 بيانات الكتالوج والفهرس وهذا التوثيق مطروحة تحت **CC0 1.0 Universal**؛ النص
-الكامل مع إشعار الناشر في [LICENSE](LICENSE).
+الكامل مع إشعار الإهداء في [LICENSE](LICENSE).
 
 ```
 taarib-registry — public domain under CC0 1.0 Universal
-Publisher: CC1A2B, Inc.  Author and maintainer: cc1a2b
+Author and maintainer: cc1a2b
 ```
 
 كل حزمة `.ruqaa` تصرّح برخصتها في بياناتها الوصفية (المقدَّمة اليوم تصرّح بـ
@@ -978,6 +977,6 @@ CC0)، وتغطي تلك الرخصة النص المترجم لا غير. وك�
 
 **taarib-registry — الكتالوج الذي يقرؤه تعريب، وخريطة ما يوجد بجانبه.**
 
-بناه [cc1a2b](https://github.com/cc1a2b) لـ CC1A2B, Inc.
+بناه [cc1a2b](https://github.com/cc1a2b).
 
 </div>
